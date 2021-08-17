@@ -9,11 +9,11 @@ const CART_BUY_URL = "https://japdevdep.github.io/ecommerce-api/cart/buy.json";
 
 var showSpinner = function(){
   document.getElementById("spinner-wrapper").style.display = "block";
-}
+};
 
 var hideSpinner = function(){
   document.getElementById("spinner-wrapper").style.display = "none";
-}
+};
 
 var getJSONData = function(url){
     var result = {};
@@ -38,7 +38,7 @@ var getJSONData = function(url){
         hideSpinner();
         return result;
     });
-}
+};
 
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
