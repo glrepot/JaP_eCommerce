@@ -1,0 +1,17 @@
+body{
+    background-color: #2c2f33;
+}
+
+.centrado{
+    text-align: center;
+    background-color: #F8F9FA;
+    margin-left: 25%;
+    margin-right: 25%;
+    margin-top: 2%;
+    margin-bottom: 1%;
+    border-radius: 5%;
+}
+
+.center {
+    margin-left: 41%;
+}
