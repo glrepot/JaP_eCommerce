@@ -62,15 +62,15 @@
     <hr>
 
     <div id="data_div">
-      <input type="email" id="email" placeholder="Email" onblur="rojo('email', 'email_error')" required><br>
+      <input type="email" id="email" placeholder="Email" onblur="rojo('email', 'email_error')"><br>
         <span id="email_error" style="color: red;"></span>
       <br>
 
-      <input type="password" id="password" placeholder="Contraseña" onblur="rojo('password', 'password_error')" required><br>
+      <input type="password" id="password" placeholder="Contraseña" onblur="rojo('password', 'password_error')"><br>
         <span id="password_error" style="color: red;"></span>
       <br>
 
-      <input type="checkbox" value="Recordarme" id="recordarme_check" required>
+      <input type="checkbox" value="Recordarme" id="recordarme_check">
         <label for="recordarme_check">Recordarme</label>
       <br>
 
@@ -83,6 +83,7 @@
     <p>Ingrese con Google</p>
     <div class="g-signin2 center" data-onsuccess="onSignIn" data-theme="dark"></div>
     <hr>
+    <a href="#" onclick="signOut();">Cerrar sesión de Google</a>
     </div>
   </div>
 
