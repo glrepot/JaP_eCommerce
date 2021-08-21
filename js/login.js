@@ -2,7 +2,8 @@
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function(e){
-
+    var boton_free_mostrador = document.getElementById("boton_free");
+    boton_free_mostrador.style.display = "none";
 });
 
 function rojo(input_id, input_error){
@@ -24,3 +25,7 @@ function ingresar(){
         window.location.href = "https://glrepot.github.io/jap_ecommerce/index.html";
     };
 };
+
+function redirigir(){
+    window.location.href = "https://glrepot.github.io/jap_ecommerce/index.html";
+}

@@ -37,6 +37,8 @@
           bot_cerr.innerHTML = "Cerrar sesión google"; //muestra el "botón" que permite cerrar sesión
           var hide_data = document.getElementById("data_div");
           hide_data.style.display = "none";
+          var boton_free_mos = document.getElementById("boton_free");
+          boton_free_mos.style.display = "block";
 
           // Useful data for your client-side scripts:
           var profile = googleUser.getBasicProfile();
@@ -96,7 +98,9 @@
         <label for="recordarme_check">Recordarme</label>
       <br>
 
-      <input type="submit" value="Entrar" onclick="ingresar()">
+      <button onclick="ingresar()">Entrar</button>
+
+      <button id="boton_free" onclick="redirigir()">Entrar a eComercio</button>
     </div>
 
     <hr>
