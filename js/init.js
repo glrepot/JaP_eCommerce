@@ -45,11 +45,11 @@ var getJSONData = function(url){
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function(e){
-  var guarda_sesión = sessionStorage.getItem("value")
+  var guarda_sesión = sessionStorage.getItem("value");
   if(guarda_sesión == null){
     window.location.href = "https://glrepot.github.io/jap_ecommerce/login.html";
     sessionStorage.setItem("value", 1);
   } else {
     console.log("se puede navegar")
-  }
+  };
 });
