@@ -35,6 +35,8 @@
         function onSignIn(googleUser) {
           var bot_cerr = document.getElementById("cerrador")
           bot_cerr.innerHTML = "Cerrar sesión google" //muestra el "botón" que permite cerrar sesión
+          var yes = document.getElementById("data_div")
+          yes.style
 
           // Useful data for your client-side scripts:
           var profile = googleUser.getBasicProfile();
@@ -68,6 +70,7 @@
   <!-- google -->
 
   <div class="centrado">
+
     <div>
       <img src="img/login.png" alt="login-img" style="width: 60%;">
     </div>
@@ -98,11 +101,14 @@
     <hr>
     
     <div>
-    <p>Ingrese con Google</p>
-    <div class="g-signin2 center" data-onsuccess="onSignIn" data-theme="dark"></div>
-    <a href="#" id="cerrador" onclick="signOut();"></a>
-    <hr>
+      <p>Ingrese con Google</p>
+        <div class="center">
+          <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
+          <a href="#" id="cerrador" onclick="signOut();"></a>
+        </div>
+      <hr>
     </div>
+
   </div>
 
     <script src="js/init.js"></script>
