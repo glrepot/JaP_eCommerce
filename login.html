@@ -56,14 +56,12 @@
       <script>
         //función que cierra la cuenta de google
         function signOut() {
-          var bit_cerrad = document.getElementById("cerrador");
-          bit_cerrad.innerHTML = "";
-          var mostrar_data = document.getElementById("data_div");
-          mostrar_data.style.display = "block";
-
-
           var auth2 = gapi.auth2.getAuthInstance();
           auth2.signOut().then(function () {
+            let bit_cerrad = document.getElementById("cerrador");
+            bit_cerrad.innerHTML = "";
+            let mostrar_data = document.getElementById("data_div");
+            mostrar_data.style.display = "block";
             console.log('User signed out.');
           });
         }
