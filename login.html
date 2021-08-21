@@ -31,12 +31,17 @@
   <!-- google -->
 
       <script>
-        //función que hace funcionar el login de google
+        //formúla que hace funcionar el login de google
         function onSignIn(googleUser) {
+          //muestra el "botón" que permite cerrar sesión
           var bot_cerr = document.getElementById("cerrador");
-          bot_cerr.innerHTML = "Cerrar sesión google"; //muestra el "botón" que permite cerrar sesión
+          bot_cerr.innerHTML = "Cerrar sesión google";
+
+          //esconde el div que contien los campos a completar
           var hide_data = document.getElementById("data_div");
           hide_data.style.display = "none";
+
+          //muestra el botón para ingresar a eComercio luego de iniciar con google
           var boton_free_mos = document.getElementById("boton_free");
           boton_free_mos.style.display = "block";
 
@@ -60,10 +65,18 @@
         function signOut() {
           var auth2 = gapi.auth2.getAuthInstance();
           auth2.signOut().then(function () {
+            //esconde el botón de entrar con google
+            let boton_free_mos2 = document.getElementById("boton_free");
+            boton_free_mos2.style.display = "none";
+
+            //esconde el botón de cerrar sesión
             let bit_cerrad = document.getElementById("cerrador");
             bit_cerrad.innerHTML = "";
+
+            //muestra de vuelta los campos para completar
             let mostrar_data = document.getElementById("data_div");
             mostrar_data.style.display = "block";
+
             console.log('User signed out.');
           });
         }
@@ -88,19 +101,23 @@
     <div id="data_div">
       <input type="email" id="email" placeholder="Email" onblur="rojo('email', 'email_error')"><br>
         <span id="email_error" style="color: red;"></span>
-      <br>
+        <br>
 
       <input type="password" id="password" placeholder="Contraseña" onblur="rojo('password', 'password_error')"><br>
         <span id="password_error" style="color: red;"></span>
-      <br>
+        <br>
 
       <input type="checkbox" value="Recordarme" id="recordarme_check">
         <label for="recordarme_check">Recordarme</label>
-      <br>
+        <br>
 
       <button onclick="ingresar()">Entrar</button>
 
-      <button id="boton_free" onclick="redirigir()">Entrar a eComercio</button>
+    </div>
+
+    <div id="boton_free">
+      <p>Ha iniciado sesión con Google, ya puede acceder al sitio</p>
+      <button onclick="redirigir()">Entrar a eComercio</button>
     </div>
 
     <hr>
