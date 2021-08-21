@@ -31,7 +31,11 @@
   <!-- google -->
 
       <script>
+        //función que hace funcionar el login de google
         function onSignIn(googleUser) {
+          var bot_cerr = document.getElementById("cerrador")
+          bot_cerr.innerHTML = "Cerrar sesión google" //muestra el "botón" que permite cerrar sesión
+
           // Useful data for your client-side scripts:
           var profile = googleUser.getBasicProfile();
           console.log("ID: " + profile.getId()); // Don't send this directly to your server!
@@ -48,7 +52,11 @@
       </script>
 
       <script>
+        //función que cierra la cuenta de google
         function signOut() {
+          var bot_cerr = document.getElementById("cerrador")
+          bot_cerr.innerHTML = ""
+
           var auth2 = gapi.auth2.getAuthInstance();
           auth2.signOut().then(function () {
             console.log('User signed out.');
@@ -92,7 +100,7 @@
     <div>
     <p>Ingrese con Google</p>
     <div class="g-signin2 center" data-onsuccess="onSignIn" data-theme="dark"></div>
-    <a href="#" onclick="signOut();">Cerrar sesión de Google</a>
+    <a href="#" id="cerrador" onclick="signOut();"></a>
     <hr>
     </div>
   </div>

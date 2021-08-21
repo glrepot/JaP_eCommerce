@@ -5,8 +5,8 @@ body{
 .centrado{
     text-align: center;
     background-color: #F8F9FA;
-    margin-left: 25%;
-    margin-right: 25%;
+    margin-left: 20%;
+    margin-right: 20%;
     margin-top: 2%;
     margin-bottom: 1%;
     border-radius: 5%;
@@ -14,4 +14,8 @@ body{
 
 .center {
     margin-left: 41%;
+}
+
+hr {
+    width: 75%;
 }
