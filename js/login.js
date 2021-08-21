@@ -11,9 +11,11 @@ function rojo(input_id, input_error){
     var error_ingresado = document.getElementById(input_error);
     if(id_ingresada.value.length < 5) {
         error_ingresado.innerHTML = "Ingrese mínimo 5 carácteres";
+        id_ingresada.classList.add("error");
         console.log("no hay datos o son muy pocos");
     } else {
         error_ingresado.innerHTML = "";
+        id_ingresada.classList.remove("error");
         console.log("hay datos ingresados");
     };
 };

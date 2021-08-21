@@ -21,3 +21,8 @@ body{
 hr {
     width: 75%;
 }
+
+.error {
+    border: 2px solid red; 
+    border-radius: 2px; 
+}
