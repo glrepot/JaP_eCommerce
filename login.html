@@ -35,8 +35,8 @@
         function onSignIn(googleUser) {
           var bot_cerr = document.getElementById("cerrador");
           bot_cerr.innerHTML = "Cerrar sesión google"; //muestra el "botón" que permite cerrar sesión
-          var mostrar_data = document.getElementById("data_div");
-          yes.style.display = "none";
+          var hide_data = document.getElementById("data_div");
+          hide_data.style.display = "none";
 
           // Useful data for your client-side scripts:
           var profile = googleUser.getBasicProfile();
@@ -56,10 +56,10 @@
       <script>
         //función que cierra la cuenta de google
         function signOut() {
-          var bot_cerr = document.getElementById("cerrador");
-          bot_cerr.innerHTML = "";
+          var bit_cerrad = document.getElementById("cerrador");
+          bit_cerrad.innerHTML = "";
           var mostrar_data = document.getElementById("data_div");
-          yes.style.display = "block";
+          mostrar_data.style.display = "block";
 
 
           var auth2 = gapi.auth2.getAuthInstance();
