@@ -6,7 +6,6 @@ function showProducts(array_to){
     var htmlContentToAppend = ""; 
     for(let i = 0; i < array_to.length; i++){
         let pro = array_to[i];
-        //
 
         htmlContentToAppend += `<li>` + pro.name + " | " + pro.description + " | " + pro.cost + " " + pro.currency + `</li>` + `<hr>`;
         //a htmlContentToAppend le voy "sumando"(agregando) la lista con <li> y las características a través de los nodos
