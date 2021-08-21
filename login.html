@@ -34,6 +34,8 @@
         //formúla que hace funcionar el login de google
         function onSignIn(googleUser) {
           //muestra el "botón" que permite cerrar sesión
+          var p_cerr = document.getElementById("p_cerrador");
+          p_cerr.innerHTML = ""
           var bot_cerr = document.getElementById("cerrador");
           bot_cerr.innerHTML = "Cerrar sesión google";
 
@@ -116,17 +118,17 @@
     </div>
 
     <div id="boton_free">
-      <p>Ha iniciado sesión con Google, ya puede acceder al sitio</p>
+      <p style="font-weight: bold;">Ha iniciado sesión con Google, ya puede acceder al sitio</p>
       <button onclick="redirigir()">Entrar a eComercio</button>
     </div>
 
     <hr>
     
     <div>
-      <p>Ingrese con Google</p>
+      <p id="p_cerrador">Ingrese con Google</p>
         <div class="center">
-          <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
           <a href="#" id="cerrador" onclick="signOut();"></a>
+          <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
         </div>
       <hr>
     </div>

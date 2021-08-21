@@ -44,6 +44,7 @@
     var auth2 = gapi.auth2.getAuthInstance();
     auth2.signOut().then(function () {
       console.log('User signed out.');
+      window.location.href = "https://glrepot.github.io/jap_ecommerce/login.html";
     });
     }
     </script>
@@ -134,9 +135,8 @@
         <p class="float-right">
           <a href="#">Volver arriba</a>
           <br><br>
-          <a href="https://glrepot.github.io/jap_ecommerce/login.html">Cerrar sesión</a>
+          <a href="#" onclick="signOut();">Cerrar sesión</a>
           <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
-          <a href="#" onclick="signOut();">Cerrar sesión de Google</a>
 
         </p>
         <p>Este sitio forma parte de Desarrollo Web - JAP - 2020</p>

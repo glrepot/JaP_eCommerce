@@ -7,6 +7,7 @@ const PRODUCT_INFO_COMMENTS_URL = "https://japdevdep.github.io/ecommerce-api/pro
 const CART_INFO_URL = "https://japdevdep.github.io/ecommerce-api/cart/987.json";
 const CART_BUY_URL = "https://japdevdep.github.io/ecommerce-api/cart/buy.json";
 
+
 var showSpinner = function(){
   document.getElementById("spinner-wrapper").style.display = "block";
 };
@@ -44,4 +45,10 @@ var getJSONData = function(url){
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function(e){
+  var guarda_sesión = sessionStorage.getItem("value")
+  if(guarda_sesión == null){
+    window.location.href = "https://glrepot.github.io/jap_ecommerce/login.html";
+  } else {
+    console.log("se puede navegar")
+  }
 });

@@ -21,11 +21,13 @@ function rojo(input_id, input_error){
 function ingresar(){
     var idcontra = document.getElementById('password');
     var idemail = document.getElementById('email');
+    sessionStorage.setItem("value", 1);
     if((idcontra.value.length && idemail.value.length) >= 5) {
         window.location.href = "https://glrepot.github.io/jap_ecommerce/index.html";
     };
 };
 
 function redirigir(){
+    sessionStorage.setItem("value", 1);
     window.location.href = "https://glrepot.github.io/jap_ecommerce/index.html";
 }
