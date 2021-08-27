@@ -1,8 +1,8 @@
-var products_array = []; //el array que contendrá los datos
+var products_array = []; //el array que contendrá los datos obtenidos del json
+var cur_array = null; //array "seleccionada" para trabajar
 
 function showProducts(array_to){
-    //la función que procesará los datos de un array ingresado (en este caso será products_array, ingresado
-    //en la función de abajo del todo perteneciente a getJSONData)
+    //la función que procesará los datos de un array ingresado (en este caso será products_array)
     var htmlContentToAppend = ""; 
     for(let i = 0; i < array_to.length; i++){
         let pro = array_to[i];
@@ -15,6 +15,47 @@ function showProducts(array_to){
     };
 };
 
+
+//función encargada de mostrar los productos dentro de un rango establecido
+function ranger() {
+	var campo_rango1 = document.getElementById('campo_rango1').value;
+	var campo_rango2 = document.getElementById('campo_rango2').value;
+	var nueva_array = null;
+	
+	nueva_array = products_array.filter(prod => (prod.cost > campo_rango1) && (prod.cost < campo_rango2));
+	cur_array = nueva_array;
+	showProducts(nueva_array);
+};
+
+//función encargada de ordenar alfabéticamente los productos
+function ordenador(order) {
+    cur_array.sort(function(a, b){
+        var puntoA = a.cost;
+        var puntoB = b.cost;
+        if (order == 'MENOR'){
+            //si en order se ingresa AZ, la lista se ordena de forma alfabetica
+            if (puntoA < puntoB) {
+                return -1;
+            }
+            if (puntoA > puntoB) {
+                return 1;
+            }
+              return 0;
+        } else {
+            //sino se ingresa MENOR, se ordena de forma Z-A
+            if (puntoA < puntoB) {
+                return 1;
+            }
+            if (puntoA > puntoB) {
+                return -1;
+            }
+              return 0;
+        };
+    });
+    showProducts(cur_array);
+};
+
+
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
@@ -24,6 +65,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
         console.log("Check status: " + check.status); //registra en la consola el estado de la petición, si hubo un error o funcionó
         if (check.status === 'ok'){
             products_array = check.data;
+			cur_array = products_array;
             showProducts(products_array);
             //si todo sale bien, muestra en pantalla el array, pero como? Primero se asigna a products_array la data del JSON asociado
             //y luego se ejecuta showProducts introduciendo products_array como valor a analizar por la función
