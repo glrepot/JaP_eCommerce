@@ -37,7 +37,7 @@ function ordenador(order) {
         var puntoA = a.cost;
         var puntoB = b.cost;
         if (order == "MENOR"){
-            //si en order se ingresa MENOR, la lista se ordena de forma alfabetica
+            //si en order se ingresa MENOR, la lista se ordena del mneor costo al mayor
             if (puntoA < puntoB) {
                 return -1;
             }
@@ -46,7 +46,7 @@ function ordenador(order) {
             }
               return 0;
         } else {
-            //sino se ingresa MENOR, se ordena de forma Z-A
+            //sino se ingresa MENOR, se ordena del mayor costo al menor
             if (puntoA < puntoB) {
                 return 1;
             }
@@ -59,34 +59,24 @@ function ordenador(order) {
     showProducts(cur_array);
 };
 
-/*
-var buscador = document.getElementById("buscador");
-var buscador_value = buscador.value;
-
-buscador.addEventListener("keyup", (event) => {
-    nueva_array_buscador = [];
-	if(buscador_value.length > 0){
-		nueva_array_buscador.push(cur_array.filter(buscador_value));		
-	}
-    console.log(nueva_array_buscador)
-});
-*/
-
-function myFunction() {
-    var buscador = document.getElementById("buscador");
-    var filter = input.value.toUpperCase();
-    var div_cont = document.getElementById("yes");
-    var li = ul.getElementsByTagName("li");
-    for (i = 0; i < li.length; i++) {
-        a = li[i].getElementsByTagName("a")[0];
-        var txtValue = a.textContent || a.innerText;
-        if (txtValue.toUpperCase().indexOf(filter) > -1) {
-            li[i].style.display = "";
-        } else {
-            li[i].style.display = "none";
+function ordenador_relevancia(){
+	var relevancia_array = null
+	relevancia_array = products_array.sort(function(a, b){
+		var pa = a.soldCount;
+		var pb = b.soldCount;
+		
+        if (pa < pb) {
+			return -1;
         }
-    }
-}
+        if (pa > pv) {
+			return 1;
+        }
+        return 0;
+	});
+	cur_array = relevancia_array;
+	showProducts(relevancia_array); 
+};
+
 
 
 //Función que se ejecuta una vez que se haya lanzado el evento de
