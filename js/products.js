@@ -61,7 +61,7 @@ function ordenador(order) {
 
 function ordenador_relevancia(){
 	var relevancia_array = null
-	relevancia_array = products_array.sort(function(a, b){
+	relevancia_array = cur_array.sort(function(a, b){
 		var pa = a.soldCount;
 		var pb = b.soldCount;
 		
