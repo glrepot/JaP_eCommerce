@@ -20,13 +20,26 @@ function showProducts(array_to){
 
 //función encargada de mostrar los productos dentro de un rango establecido
 function ranger() {
-	var campo_rango1 = document.getElementById("campo_rango1").value;
-	var campo_rango2 = document.getElementById("campo_rango2").value;
+	var campo_rango1 = document.getElementById("campo_rango1");
+	var campo_rango2 = document.getElementById("campo_rango2");
 	var nueva_array = null;
 	
-	nueva_array = products_array.filter(prod => (prod.cost > campo_rango1) && (prod.cost < campo_rango2));
+	nueva_array = products_array.filter(prod => (prod.cost > campo_rango1.value) && (prod.cost < campo_rango2.value));
 	cur_array = nueva_array;
 	showProducts(nueva_array);
+	
+	if((campo_rango1.value == '') && (campo_rango2.value == '')){
+		cur_array = products_array;
+		showProducts(cur_array);
+	}
+	
+	if((campo_rango1.value == '') && (campo_rango2.value != '')){
+		campo_rango1.value = 0;
+	};
+	
+	if((campo_rango2.value == '') && (campo_rango1.value != '')){
+		campo_rango2.value = 16000;
+	};
 };
 
 
