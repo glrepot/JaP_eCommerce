@@ -1,3 +1,6 @@
+//HACER EL ORDEN POR RELEVANCIA Y EL BUSCADOR
+//RELEVANCIA ES ORDENAR DEL MAS VENDIDO AL MENOS VENDIDO
+
 var products_array = []; //el array que contendrá los datos obtenidos del json
 var cur_array = null; //array "seleccionada" para trabajar
 
@@ -18,8 +21,8 @@ function showProducts(array_to){
 
 //función encargada de mostrar los productos dentro de un rango establecido
 function ranger() {
-	var campo_rango1 = document.getElementById('campo_rango1').value;
-	var campo_rango2 = document.getElementById('campo_rango2').value;
+	var campo_rango1 = document.getElementById("campo_rango1").value;
+	var campo_rango2 = document.getElementById("campo_rango2").value;
 	var nueva_array = null;
 	
 	nueva_array = products_array.filter(prod => (prod.cost > campo_rango1) && (prod.cost < campo_rango2));
@@ -27,13 +30,14 @@ function ranger() {
 	showProducts(nueva_array);
 };
 
+
 //función encargada de ordenar alfabéticamente los productos
 function ordenador(order) {
     cur_array.sort(function(a, b){
         var puntoA = a.cost;
         var puntoB = b.cost;
-        if (order == 'MENOR'){
-            //si en order se ingresa AZ, la lista se ordena de forma alfabetica
+        if (order == "MENOR"){
+            //si en order se ingresa MENOR, la lista se ordena de forma alfabetica
             if (puntoA < puntoB) {
                 return -1;
             }
@@ -54,6 +58,35 @@ function ordenador(order) {
     });
     showProducts(cur_array);
 };
+
+/*
+var buscador = document.getElementById("buscador");
+var buscador_value = buscador.value;
+
+buscador.addEventListener("keyup", (event) => {
+    nueva_array_buscador = [];
+	if(buscador_value.length > 0){
+		nueva_array_buscador.push(cur_array.filter(buscador_value));		
+	}
+    console.log(nueva_array_buscador)
+});
+*/
+
+function myFunction() {
+    var buscador = document.getElementById("buscador");
+    var filter = input.value.toUpperCase();
+    var div_cont = document.getElementById("yes");
+    var li = ul.getElementsByTagName("li");
+    for (i = 0; i < li.length; i++) {
+        a = li[i].getElementsByTagName("a")[0];
+        var txtValue = a.textContent || a.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            li[i].style.display = "";
+        } else {
+            li[i].style.display = "none";
+        }
+    }
+}
 
 
 //Función que se ejecuta una vez que se haya lanzado el evento de

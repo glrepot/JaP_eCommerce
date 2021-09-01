@@ -25,9 +25,10 @@ function rojo(input_id, input_error){
 function ingresar(){
     //función que redirige a index si todo esta ok y se ha tocado el botón de ingresar
     var idcontra = document.getElementById('password');
-    var idemail = document.getElementById('usuario');
+    var iduser = document.getElementById('usuario');
+	sessionStorage.setItem("usuario", iduser.value);
     sessionStorage.setItem("value", 1);
-    if((idcontra.value.length && idemail.value.length) >= 5) {
+    if((idcontra.value.length && iduser.value.length) >= 5) {
         window.location.href = "https://glrepot.github.io/jap_ecommerce/index.html";
     };
 };

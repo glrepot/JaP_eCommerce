@@ -50,6 +50,6 @@ document.addEventListener("DOMContentLoaded", function(e){
     window.location.href = "https://glrepot.github.io/jap_ecommerce/login.html";
     sessionStorage.setItem("value", 1);
   } else {
-    console.log("se puede navegar")
+    console.log("se puede navegar");
   };
 });
