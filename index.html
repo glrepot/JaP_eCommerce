@@ -52,10 +52,12 @@
     <!-- google -->
 	
 	<script>
+	document.addEventListener("DOMContentLoaded", function(e){
 	var user = sessionStorage.getItem("usuario");
 	var campo_user = document.getElementById("user_show");
 	console.log(user);
 	campo_user.innerHTML = "Bienvenido, " + user;
+	});
 	</script>
 
     <nav class="site-header sticky-top py-1 bg-dark">
