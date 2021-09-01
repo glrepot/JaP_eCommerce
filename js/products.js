@@ -68,7 +68,7 @@ function ordenador_relevancia(){
         if (pa < pb) {
 			return -1;
         }
-        if (pa > pv) {
+        if (pa > pb) {
 			return 1;
         }
         return 0;
