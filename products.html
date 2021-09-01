@@ -72,13 +72,14 @@
     </nav>
 	
 	<!-- ------------------------------------------------- -->
-	<div>
+	<div class="container p-5">
 	<button onclick="ordenador_relevancia()">Ord. por relevancia</button>
-    <button onclick="ordenador('MENOR')">Ord. menor</button>
-    <button onclick="ordenador('MAYOR')">Ord. mayor</button>
-	<input type="text" id="campo_rango1" placeholder="min" value="0">
-	<input type="text" id="campo_rango2" placeholder="max" value="16000">
+    <button onclick="ordenador('MENOR')">Ord. por menor costo</button>
+    <button onclick="ordenador('MAYOR')">Ord. por mayor costo</button>
+	<input type="text" id="campo_rango1" placeholder="min">
+	<input type="text" id="campo_rango2" placeholder="max">
 	<button onclick="ranger()">Filtrar</button>
+	<hr>
 	<input type="search" id="buscador" placeholder="Buscar...">
 	</div>
 	<!-- ------------------------------------------------- -->
