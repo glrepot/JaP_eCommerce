@@ -1,5 +1,4 @@
-//HACER EL ORDEN POR RELEVANCIA Y EL BUSCADOR
-//RELEVANCIA ES ORDENAR DEL MAS VENDIDO AL MENOS VENDIDO
+//FALTA EL BUSCADOR
 
 var products_array = []; //el array que contendrá los datos obtenidos del json
 var cur_array = null; //array "seleccionada" para trabajar
