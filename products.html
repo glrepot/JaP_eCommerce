@@ -80,13 +80,15 @@
 	<input type="text" id="campo_rango2" placeholder="max">
 	<button onclick="ranger()">Filtrar</button>
 	<hr>
-	<input type="search" id="buscador" placeholder="Buscar...">
+	<input type="search" id="buscador" onkeyup="buscar()" placeholder="Buscar...">
 	</div>
 	<!-- ------------------------------------------------- -->
 	
     <div class="container p-5">
       <!-- ------------------------------------------------- -->
-      <div id="yes"></div>
+      <div>
+		<ul id="yes"></ul>
+	  </div>
       <!-- ------------------------------------------------- -->
     </div>
     <footer class="text-muted bg-light">

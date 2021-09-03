@@ -1,5 +1,3 @@
-//FALTA EL BUSCADOR
-
 var products_array = []; //el array que contendrá los datos obtenidos del json
 var cur_array = null; //array "seleccionada" para trabajar
 
@@ -20,23 +18,28 @@ function showProducts(array_to){
 
 //función encargada de mostrar los productos dentro de un rango establecido
 function ranger() {
+	//se asignan en los campos donde la información de los rangos es asignada
 	var campo_rango1 = document.getElementById("campo_rango1");
 	var campo_rango2 = document.getElementById("campo_rango2");
 	var nueva_array = null;
 	
+	//proceso de filtrado
 	nueva_array = products_array.filter(prod => (prod.cost > campo_rango1.value) && (prod.cost < campo_rango2.value));
 	cur_array = nueva_array;
 	showProducts(nueva_array);
 	
+	//si ambos campos están vacíos se muestra el array inicial
 	if((campo_rango1.value == '') && (campo_rango2.value == '')){
 		cur_array = products_array;
 		showProducts(cur_array);
 	}
 	
+	//si campo_rango1 está vacío, se le asigna un cero para que funcione el filtrado
 	if((campo_rango1.value == '') && (campo_rango2.value != '')){
 		campo_rango1.value = 0;
 	};
 	
+	//si si campo_rango2 está vacío, se le asigna 16000 para que funcione el filtrado
 	if((campo_rango2.value == '') && (campo_rango1.value != '')){
 		campo_rango2.value = 16000;
 	};
@@ -49,7 +52,7 @@ function ordenador(order) {
         var puntoA = a.cost;
         var puntoB = b.cost;
         if (order == "MENOR"){
-            //si en order se ingresa MENOR, la lista se ordena del mneor costo al mayor
+            //si en order se ingresa MENOR, la lista se ordena del menor costo al mayor
             if (puntoA < puntoB) {
                 return -1;
             }
@@ -71,16 +74,18 @@ function ordenador(order) {
     showProducts(cur_array);
 };
 
+
+//ordena por relevancia el listado, se filtra del más popular en ventas al menor
 function ordenador_relevancia(){
 	var relevancia_array = null
 	relevancia_array = cur_array.sort(function(a, b){
 		var pa = a.soldCount;
 		var pb = b.soldCount;
 		
-        if (pa < pb) {
+        if (pa > pb) {
 			return -1;
         }
-        if (pa > pb) {
+        if (pa < pb) {
 			return 1;
         }
         return 0;
@@ -90,6 +95,34 @@ function ordenador_relevancia(){
 };
 
 
+//se encarga de hacer funcionar el campo de búsqueda
+function buscar() {
+	  var input, filter, ul, li, txtValue; //se declaran las variables aquí arriba para luego ser asignadas
+	  input = document.getElementById("buscador");
+	  filter = input.value.toUpperCase();
+	  ul = document.getElementById("yes");
+	  li = ul.getElementsByTagName("li");
+	
+	//sección encargada de ir analizando parte por parte el array e ir filtrando, mostrando y escondiendo los li que contienen
+	//los mismos datos ingresados en el campo de búsqueda
+	  for (let i = 0; i < li.length; i++){
+		txtValue = li[i].textContent || li[i].innerText;
+		if (txtValue.toUpperCase().indexOf(filter) > -1) {
+		  li[i].style.display = "";
+		} else {
+		  li[i].style.display = "none";
+		}
+	  }
+  
+	  //esconde las barras de separación de los li en caso de que haya texto ingresado en el campo de input
+	  var hache = ul.getElementsByTagName("hr");
+	  for (let y = 0; y < hache.length; y++){
+		  hache[y].style.display = "none";
+		  if(input.value == ""){
+			  hache[y].style.display = "block";
+		  }
+	  };
+}
 
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
