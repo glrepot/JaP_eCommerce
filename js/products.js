@@ -46,7 +46,7 @@ function ranger() {
 };
 
 
-//función encargada de ordenar alfabéticamente los productos
+//función encargada de ordenar por costo asc y desc a los productos
 function ordenador(order) {
     cur_array.sort(function(a, b){
         var puntoA = a.cost;
@@ -77,7 +77,7 @@ function ordenador(order) {
 
 //ordena por relevancia el listado, se filtra del más popular en ventas al menor
 function ordenador_relevancia(){
-	var relevancia_array = null
+	var relevancia_array = null;
 	relevancia_array = cur_array.sort(function(a, b){
 		var pa = a.soldCount;
 		var pb = b.soldCount;
@@ -103,7 +103,7 @@ function buscar() {
 	  ul = document.getElementById("yes");
 	  li = ul.getElementsByTagName("li");
 	
-	//sección encargada de ir analizando parte por parte el array e ir filtrando, mostrando y escondiendo los li que contienen
+	//sección encargada de ir analizando parte por parte la lista e ir filtrando, mostrando o escondiendo los li que si/no contienen
 	//los mismos datos ingresados en el campo de búsqueda
 	  for (let i = 0; i < li.length; i++){
 		txtValue = li[i].textContent || li[i].innerText;
