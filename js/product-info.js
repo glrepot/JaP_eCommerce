@@ -2,7 +2,7 @@ var comments_array = []; //array que contendrá los comentarios
 var products_array = []; //array que contendrá los productos
 
 
-function showProductPro(array_to){
+function showProduct(array_to){
 	var div_del_html = document.getElementById("prod_div");
 	
 	div_del_html.innerHTML = array_to.name + `<br>` + array_to.description + `<br>` + array_to.cost +
@@ -19,7 +19,7 @@ function showProductPro(array_to){
 };
 
 
-function showProductsCom(array_to){
+function showComms(array_to){
     var htmlContentToAppend = ""; 
     for(let i = 0; i < array_to.length; i++){
         let com = array_to[i];
