@@ -27,7 +27,8 @@ function showImgs(array_to){
 
 
 function showComms(array_to){
-    var htmlContentToAppend = ""; 
+    var htmlContentToAppend = "";
+	var starsToAppend = "";
     for(let i = 0; i < array_to.length; i++){
         let com = array_to[i];
 
@@ -40,11 +41,12 @@ function showComms(array_to){
 		<p class="card-text">` + com.dateTime + `</p>
 		</div>
 		</div>`;
+		
 
-        document.getElementById("com_div").innerHTML = htmlContentToAppend;
+        document.getElementById("com_div").innerHTML = htmlContentToAppend + starsToAppend;
     };
 };
-
+//`<h6 class="card-subtitle mb-2 text-muted">` + com.score + `</h6>
 
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
