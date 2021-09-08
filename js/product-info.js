@@ -3,18 +3,19 @@ var products_array = []; //array que contendrá los productos
 
 
 function showProduct(array_to){
-	var div_del_html = document.getElementById("prod_div");
-	
-	div_del_html.innerHTML = array_to.name + `<br>` + array_to.description + `<br>` + array_to.cost +
+	document.getElementById("prod_div").innerHTML = array_to.name + `<br>` + array_to.description + `<br>` + array_to.cost +
 		array_to.soldCount + `<br>` + array_to.category + `<br>`;
-	
+};
+
+
+function showImgs(array_to){
 	var imgsToAppend = "";
-	for (let i = 0; i < array_to.length; i++){
-		let pro = array_to[i];
+	for (i = 0; i < array_to.length; i++){
+		let img = array_to[i];
 		
-		imgsToAppend = `<br>` + pro.images;
+		imgsToAppend += `<br>` + img;
 		
-		div_del_html.innerHTML = imgsToAppend;
+		document.getElementById("img_div").innerHTML = imgsToAppend;
 	};
 };
 
@@ -41,6 +42,7 @@ document.addEventListener("DOMContentLoaded", function(e){
         if (check.status === 'ok'){
             products_array = check.data;
             showProduct(products_array);
+			showImgs(products_array.images);
         };
     });
 	
