@@ -3,8 +3,14 @@ var products_array = []; //array que contendrá los productos
 
 
 function showProduct(array_to){
-	document.getElementById("prod_div").innerHTML = array_to.name + `<br>` + array_to.description + `<br>` + array_to.cost +
-		array_to.soldCount + `<br>` + array_to.category + `<br>`;
+	document.getElementById("prod_div").innerHTML = 
+	`<h2>` +array_to.category + " / " + array_to.name + `</h2> <hr>` + 
+	
+	`<p>` + array_to.description  + `</p>` + 
+	
+	`<b>` + "Costo: " + `</b>` + array_to.cost + " " + "USD" +`<br>`+ 
+	
+	`<b>` + "Cantidad vendidos: " + `</b>` + array_to.soldCount + `<br>`;
 };
 
 
@@ -25,12 +31,19 @@ function showComms(array_to){
     for(let i = 0; i < array_to.length; i++){
         let com = array_to[i];
 
-        htmlContentToAppend += `<p>` + com.user + `<p>`;
+        htmlContentToAppend += `
+		<div class="card" style="width: 18rem;">
+		<div class="card-body">
+		<h5 class="card-title">` + com.user + `</h5>
+		<h6 class="card-subtitle mb-2 text-muted">` + com.score + `</h6>
+		<p class="card-text">` + com.description + `</p>
+		<p class="card-text">` + com.dateTime + `</p>
+		</div>
+		</div>`;
 
-        document.getElementById("com_div").innerHTML = htmlContentToAppend; 
+        document.getElementById("com_div").innerHTML = htmlContentToAppend;
     };
 };
-
 
 
 //Función que se ejecuta una vez que se haya lanzado el evento de
