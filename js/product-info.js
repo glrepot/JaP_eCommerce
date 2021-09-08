@@ -13,7 +13,7 @@ function showImgs(array_to){
 	for (i = 0; i < array_to.length; i++){
 		let img = array_to[i];
 		
-		imgsToAppend += `<br>` + img;
+		imgsToAppend += `<img src="` + img + `">` + `<br>`;
 		
 		document.getElementById("img_div").innerHTML = imgsToAppend;
 	};
