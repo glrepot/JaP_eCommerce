@@ -2,7 +2,7 @@ var products_array = []; //el array que contendrá los datos obtenidos del json
 var cur_array = null; //array "seleccionada" para trabajar
 
 function showProducts(array_to){
-    //la función que procesará los datos de un array ingresado (en este caso será products_array)
+    //la función que procesará los datos de un array ingresado
     var htmlContentToAppend = ""; 
     for(let i = 0; i < array_to.length; i++){
         let pro = array_to[i];
