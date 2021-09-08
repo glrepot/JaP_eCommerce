@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", function(e){
         console.log("Check status: " + check.status);
         if (check.status === 'ok'){
             products_array = check.data;
-            showProductPro(products_array);
+            showProduct(products_array);
         };
     });
 	
@@ -49,7 +49,7 @@ document.addEventListener("DOMContentLoaded", function(e){
         console.log("Check status: " + check.status);
         if (check.status === 'ok'){
             comments_array = check.data;
-            showProductsCom(comments_array);
+            showComms(comments_array);
         };
     });
 });
