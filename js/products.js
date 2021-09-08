@@ -7,7 +7,26 @@ function showProducts(array_to){
     for(let i = 0; i < array_to.length; i++){
         let pro = array_to[i];
 
-        htmlContentToAppend += `<li>` + pro.name + " | " + pro.description + " | " + pro.cost + " " + pro.currency + `</li>` + `<hr>`;
+        htmlContentToAppend += `
+            <a href="product-info.html" class="list-group-item list-group-item-action">
+                <div class="row">
+                    <div class="col-3">
+                        <img src="` + pro.imgSrc + `" alt="` + pro.description + `" class="img-thumbnail">
+                    </div>
+                    <div class="col">
+                        <div class="d-flex w-100 justify-content-between">
+                            <h4 class="mb-1">`+ pro.name +`</h4>
+                            <small class="text-muted">` + pro.soldCount + ` artículos</small>
+                        </div>
+                        <p class="mb-1">` + pro.description + `</p>
+						<p class="mb-1">` + pro.cost + `</p>
+						<p class="mb-1">` + pro.currency + `</p>
+                    </div>
+                </div>
+            </a>
+            `
+		
+		//`<li>` + pro.name + " | " + pro.description + " | " + pro.cost + " " + pro.currency + `</li>` + `<hr>`;
         //a htmlContentToAppend le voy "sumando"(agregando) la lista con <li> y las características a través de los nodos
 
         document.getElementById("yes").innerHTML = htmlContentToAppend; 
