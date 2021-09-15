@@ -68,7 +68,7 @@ function pubComm() {
 		<h5 class="card-title">` + user + `</h5>
 		<h6 class="card-subtitle mb-2 text-muted">` + "score" + `</h6>
 		<p class="card-text">` + texto + `</p>
-		<p class="card-text">` + day + " - " + month + " - "+ year + `</p>
+		<p class="card-text">` + year + "-" + month + "-"+ day + `</p>
 		</div>
 		</div>`;
 	
