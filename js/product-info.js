@@ -19,7 +19,13 @@ function showImgs(array_to){
 	for (i = 0; i < array_to.length; i++){
 		let img = array_to[i];
 		
-		imgsToAppend += `<img src="` + img + `">` + `<br>`;
+		imgsToAppend += `
+        <div class="col-lg-3 col-md-4 col-6">
+            <div class="d-block mb-4 h-100">
+                <img class="img-fluid img-thumbnail" src="` + img + `" alt="">
+            </div>
+        </div>
+        `
 		
 		document.getElementById("img_div").innerHTML = imgsToAppend;
 	};
@@ -43,7 +49,7 @@ function showComms(array_to){
 		</div>`;
 		
 
-        document.getElementById("com_div").innerHTML = htmlContentToAppend + starsToAppend;
+        document.getElementById("com_div").innerHTML = htmlContentToAppend;
     };
 };
 //`<h6 class="card-subtitle mb-2 text-muted">` + com.score + `</h6>
