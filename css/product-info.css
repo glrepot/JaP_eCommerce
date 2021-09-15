@@ -3,6 +3,12 @@
 .center {
 	margin: auto;
 }
+
+.center_flechas {
+	margin: auto;
+	text-align: center;
+}
+
 /* Slideshow container */
 .slideshow-container {
   max-width: 1000px;

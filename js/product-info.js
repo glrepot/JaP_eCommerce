@@ -39,7 +39,7 @@ function showComms(array_to){
         let com = array_to[i];
 
         htmlContentToAppend += `
-		<div class="mySlides card" style="width: 18rem;">
+		<div class="mySlides card center" style="width: 18rem;">
 		<div class="card-body">
 		<h5 class="card-title">` + com.user + `</h5>
 		<h6 class="card-subtitle mb-2 text-muted">` + com.score + `</h6>
