@@ -21,6 +21,13 @@ button {
     margin-right: auto;
 }
 
+select {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+	margin-bottom: 7px;
+}
+
 /* Slideshow container */
 .slideshow-container {
   max-width: 1000px;

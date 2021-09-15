@@ -32,6 +32,11 @@ function showImgs(array_to){
 };
 
 
+function estrellado(stars){
+	;
+};
+
+
 function showComms(array_to){
     var htmlContentToAppend = "";
 	var starsToAppend = "";
@@ -42,7 +47,7 @@ function showComms(array_to){
 		<div class="mySlides card center" style="width: 18rem;">
 		<div class="card-body">
 		<h5 class="card-title">` + com.user + `</h5>
-		<h6 class="card-subtitle mb-2 text-muted">` + com.score + `</h6>
+		` + estrellado(com.user) + `
 		<p class="card-text">` + com.description + `</p>
 		<p class="card-text">` + com.dateTime + `</p>
 		</div>
@@ -52,23 +57,27 @@ function showComms(array_to){
         document.getElementById("com_div").innerHTML = htmlContentToAppend;
     };
 };
-//`<h6 class="card-subtitle mb-2 text-muted">` + com.score + `</h6>
+
 
 function pubComm() {
 	var texto = document.getElementById("user_description").value;
 	var user = sessionStorage.getItem("usuario");
+	var score = document.getElementById("puntos").value;
 	var time = new Date();
 	var day = time.getDate();
 	var month = time.getMonth() + 1;
 	var year = time.getFullYear();
+	var hour = time.getHours();
+	var minutes = time.getMinutes();
+	var seconds = time.getSeconds();
 	
 	document.getElementById("recent_com_si").innerHTML = `
 		<div class="card center" style="width: 18rem;">
 		<div class="card-body">
 		<h5 class="card-title">` + user + `</h5>
-		<h6 class="card-subtitle mb-2 text-muted">` + "score" + `</h6>
+		<h6 class="card-subtitle mb-2 text-muted">` + score + `</h6>
 		<p class="card-text">` + texto + `</p>
-		<p class="card-text">` + year + "-" + month + "-"+ day + `</p>
+		<p class="card-text">` + year + "-" + month + "-"+ day + " " + hour + ":" + minutes + ":" + seconds + `</p>
 		</div>
 		</div>`;
 	
@@ -76,7 +85,7 @@ function pubComm() {
 		<div id="trew" class="mySlides card center" style="width: 18rem;">
 		<div class="card-body">
 		<h5 class="card-title">` + user + `</h5>
-		<h6 class="card-subtitle mb-2 text-muted">` + "score" + `</h6>
+		<h6 class="card-subtitle mb-2 text-muted">` + score + `</h6>
 		<p class="card-text">` + texto + `</p>
 		<p class="card-text">` + year + "-" + month + "-"+ day + `</p>
 		</div>
@@ -85,7 +94,9 @@ function pubComm() {
 	sessionStorage.setItem("comentario_reciente", document.getElementById("recent_com_si").innerHTML);
 };
 
+
 var slideIndex = 1;
+
 
 function showSlides(n) {
   let  slides = document.getElementsByClassName("mySlides"); 
@@ -96,6 +107,7 @@ function showSlides(n) {
   };
   slides[slideIndex - 1].style.display = "block";
 };
+
 
 function plusSlides(n) {
   showSlides(slideIndex += n);
