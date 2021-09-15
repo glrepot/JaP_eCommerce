@@ -55,7 +55,7 @@ function showComms(array_to){
 //`<h6 class="card-subtitle mb-2 text-muted">` + com.score + `</h6>
 
 function pubComm() {
-	var texto = document.getElementById("user_description");
+	var texto = document.getElementById("user_description").value;
 	var user = sessionStorage.getItem("usuario");
 	var time = new Date();
 	var day = time.getDate();
@@ -68,7 +68,7 @@ function pubComm() {
 		<h5 class="card-title">` + user + `</h5>
 		<h6 class="card-subtitle mb-2 text-muted">` + "score" + `</h6>
 		<p class="card-text">` + texto + `</p>
-		<p class="card-text">` + day + month + year + `</p>
+		<p class="card-text">` + day + " - " + month + " - "+ year + `</p>
 		</div>
 		</div>`;
 	
