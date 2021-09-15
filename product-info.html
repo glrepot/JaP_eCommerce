@@ -87,7 +87,7 @@
 		
 		<div class="center_flechas">
 		<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-		<b>"Comentarios"</b>
+		<b>Comentarios</b>
 		<a class="next" onclick="plusSlides(1)">&#10095;</a>
 		<div "slideshow-container" id="com_div"></div>
 		</div>
@@ -99,10 +99,10 @@
 			<div id="recent_com_si">
 				<div class="card center" style="width: 18rem;">
 					<div class="card-body">
-					<h5 class="card-title">hombre_azul</h5>
-					<h6 class="card-subtitle mb-2 text-muted">puntaje</h6>
-					<p class="card-text">Este auto es muy rojo</p>
-					<p class="card-text">2021-09-01 10:00:21</p>
+					<h5 id="rec_user" class="card-title">hombre_azul</h5>
+					<h6 id="rec_points" class="card-subtitle mb-2 text-muted">puntaje</h6>
+					<p id="rec_desc" class="card-text">Este auto es muy rojo</p>
+					<p id="rec_time" class="card-text">2021-09-01 10:00:21</p>
 					</div>
 				</div>
 			</div>
@@ -110,12 +110,12 @@
 		<br>
 		<hr>
 		
-		<div id="comentary_container">
-			<p style="text-align: center"><b><i>Comentarios sobre el producto? Nos encantaría leerlos:</i></b></p>
+		<div id="comentary_container" class="center">
+			<p style="text-align: center"><b><i>Comentarios sobre el producto? Nos encantaría leerte:</i></b></p>
 			<p style="text-align: center">Puntaje:</p>
 			<p style="text-align: center">Comentario:</p>
 			<textarea id="user_description" rows="3" cols="31" placeholder="Escriba brevemente su opinión aquí..."></textarea><br>
-			<button>Publicar</button>
+			<button class="center" onclick="pubComm()">Publicar</button>
 		</div>
 	  </div>
 	  <!-- ---------------- -->
