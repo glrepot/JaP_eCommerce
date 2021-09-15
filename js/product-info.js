@@ -39,7 +39,7 @@ function showComms(array_to){
         let com = array_to[i];
 
         htmlContentToAppend += `
-		<div class="card" style="width: 18rem;">
+		<div class="mySlides card" style="width: 18rem;">
 		<div class="card-body">
 		<h5 class="card-title">` + com.user + `</h5>
 		<h6 class="card-subtitle mb-2 text-muted">` + com.score + `</h6>
@@ -53,6 +53,27 @@ function showComms(array_to){
     };
 };
 //`<h6 class="card-subtitle mb-2 text-muted">` + com.score + `</h6>
+
+var slideIndex = 1;
+
+function showSlides(n) {
+  let  slides = document.getElementsByClassName("mySlides"); 
+  if (n > slides.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = slides.length}
+  for (let i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";  
+  }
+  slides[slideIndex - 1].style.display = "block"; 
+}
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
 
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
@@ -73,6 +94,7 @@ document.addEventListener("DOMContentLoaded", function(e){
         if (check.status === 'ok'){
             comments_array = check.data;
             showComms(comments_array);
+			showSlides(slideIndex);
         };
     });
 });
