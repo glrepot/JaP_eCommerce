@@ -62,8 +62,8 @@ function pubComm() {
 	var month = time.getMonth() + 1;
 	var year = time.getFullYear();
 	
-	var new_comm = `
-		<div class="mySlides card center" style="width: 18rem;">
+	document.getElementById("recent_com_si").innerHTML = `
+		<div class="card center" style="width: 18rem;">
 		<div class="card-body">
 		<h5 class="card-title">` + user + `</h5>
 		<h6 class="card-subtitle mb-2 text-muted">` + "score" + `</h6>
@@ -72,8 +72,7 @@ function pubComm() {
 		</div>
 		</div>`;
 	
-	document.getElementById("recent_com_si").innerHTML = new_comm;
-	
+	sessionStorage.setItem("comentario_reciente", document.getElementById("recent_com_si").innerHTML);
 };
 
 var slideIndex = 1;
@@ -115,4 +114,18 @@ document.addEventListener("DOMContentLoaded", function(e){
 			showSlides(slideIndex);
         };
     });
+	
+	if(sessionStorage.getItem("comentario_reciente") == null){
+		document.getElementById("recent_com_si").innerHTML = `
+		<div class="card center" style="width: 18rem;">
+			<div class="card-body">
+				<h5 id="rec_user" class="card-title">hombre_azul</h5>
+				<h6 id="rec_points" class="card-subtitle mb-2 text-muted">puntaje</h6>
+				<p id="rec_desc" class="card-text">Este auto es muy rojo</p>
+				<p id="rec_time" class="card-text">2021-09-01 10:00:21</p>
+			</div>
+		</div>`
+		} else {
+			document.getElementById("recent_com_si").innerHTML = sessionStorage.getItem("comentario_reciente");
+		};
 });
