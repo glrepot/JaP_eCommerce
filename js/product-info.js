@@ -32,23 +32,17 @@ function showImgs(array_to){
 };
 
 
-function estrellado(stars){
-	;
-};
-
-
 function showComms(array_to){
     var htmlContentToAppend = "";
-	var starsToAppend = "";
     for(let i = 0; i < array_to.length; i++){
         let com = array_to[i];
 
         htmlContentToAppend += `
 		<div class="mySlides card center" style="width: 18rem;">
 		<div class="card-body">
-		<h5 class="card-title">` + com.user + `</h5>
-		` + estrellado(com.user) + `
-		<p class="card-text">` + com.description + `</p>
+		<h5 class="card-title">` + com.user + `</h5>`
+		+ (`<span class="fa fa-star checked"></span>`).repeat(com.score) +
+		`<p class="card-text">` + com.description + `</p>
 		<p class="card-text">` + com.dateTime + `</p>
 		</div>
 		</div>`;
@@ -75,7 +69,7 @@ function pubComm() {
 		<div class="card center" style="width: 18rem;">
 		<div class="card-body">
 		<h5 class="card-title">` + user + `</h5>
-		<h6 class="card-subtitle mb-2 text-muted">` + score + `</h6>
+		<h6 class="card-subtitle mb-2 text-muted">` + (`<span class="fa fa-star checked"></span>`).repeat(score) + `</h6>
 		<p class="card-text">` + texto + `</p>
 		<p class="card-text">` + year + "-" + month + "-"+ day + " " + hour + ":" + minutes + ":" + seconds + `</p>
 		</div>
@@ -85,13 +79,14 @@ function pubComm() {
 		<div id="trew" class="mySlides card center" style="width: 18rem;">
 		<div class="card-body">
 		<h5 class="card-title">` + user + `</h5>
-		<h6 class="card-subtitle mb-2 text-muted">` + score + `</h6>
+		<h6 class="card-subtitle mb-2 text-muted">` + (`<span class="fa fa-star checked"></span>`).repeat(score) + `</h6>
 		<p class="card-text">` + texto + `</p>
 		<p class="card-text">` + year + "-" + month + "-"+ day + `</p>
 		</div>
 		</div>`;
 	
 	sessionStorage.setItem("comentario_reciente", document.getElementById("recent_com_si").innerHTML);
+	sessionStorage.setItem("trew_reciente", document.getElementById("trew").innerHTML)
 };
 
 
@@ -142,7 +137,7 @@ document.addEventListener("DOMContentLoaded", function(e){
 		<div class="card center" style="width: 18rem;">
 			<div class="card-body">
 				<h5 id="rec_user" class="card-title">hombre_azul</h5>
-				<h6 id="rec_points" class="card-subtitle mb-2 text-muted">puntaje</h6>
+				<h6 id="rec_points" class="card-subtitle mb-2 text-muted"><span class="fa fa-star checked"></span></h6>
 				<p id="rec_desc" class="card-text">Este auto es muy rojo</p>
 				<p id="rec_time" class="card-text">2021-09-01 10:00:21</p>
 			</div>
