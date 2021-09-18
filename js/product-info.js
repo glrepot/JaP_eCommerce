@@ -2,6 +2,7 @@ var comments_array = []; //array que contendrá los comentarios
 var products_array = []; //array que contendrá los productos
 
 
+//función encargada de procesar los datos del producto y mostrarlos en html
 function showProduct(array_to){
 	document.getElementById("prod_div").innerHTML = 
 	`<h2>` +array_to.category + " / " + array_to.name + `</h2> <hr>` + 
@@ -14,6 +15,7 @@ function showProduct(array_to){
 };
 
 
+//función encargada de procesar las imagenes del producto y mostrarlas en html
 function showImgs(array_to){
 	var imgsToAppend = "";
 	for (i = 0; i < array_to.length; i++){
@@ -32,6 +34,7 @@ function showImgs(array_to){
 };
 
 
+//función encargada de procesar los comentarios y mostrarlos
 function showComms(array_to){
     var htmlContentToAppend = "";
     for(let i = 0; i < array_to.length; i++){
@@ -53,6 +56,7 @@ function showComms(array_to){
 };
 
 
+//función encargada de publicar el comentario
 function pubComm() {
 	var texto = document.getElementById("user_description").value;
 	var user = sessionStorage.getItem("usuario");
@@ -89,9 +93,8 @@ function pubComm() {
 	sessionStorage.setItem("trew_reciente", document.getElementById("trew").innerHTML)
 };
 
-
+//función encargada de mostrar los comentarios como diaspositivas
 var slideIndex = 1;
-
 
 function showSlides(n) {
   let  slides = document.getElementsByClassName("mySlides"); 
@@ -113,25 +116,29 @@ function plusSlides(n) {
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function(e){
+	//sección del producto
 	getJSONData(PRODUCT_INFO_URL).then(function(check){
         console.log("Check status: " + check.status);
         if (check.status === 'ok'){
             products_array = check.data;
-            showProduct(products_array);
-			showImgs(products_array.images);
+            showProduct(products_array); //se procesan los datos del producto
+			showImgs(products_array.images); //se procesan las imagenes del prodcuto
         };
     });
 	
 	
+	//sección de los comentarios
 	getJSONData(PRODUCT_INFO_COMMENTS_URL).then(function(check){
         console.log("Check status: " + check.status);
         if (check.status === 'ok'){
             comments_array = check.data;
-            showComms(comments_array);
-			showSlides(slideIndex);
+            showComms(comments_array); //se procesan los comentarios
+			showSlides(slideIndex); //se inician las "diaspositivas"
         };
     });
 	
+	
+	//analiza el comentario mas reciente
 	if(sessionStorage.getItem("comentario_reciente") == null){
 		document.getElementById("recent_com_si").innerHTML = `
 		<div class="card center" style="width: 18rem;">
