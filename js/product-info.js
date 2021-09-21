@@ -69,6 +69,7 @@ function pubComm() {
 	var minutes = time.getMinutes();
 	var seconds = time.getSeconds();
 	
+	//publica el comentario
 	document.getElementById("recent_com_si").innerHTML = `
 		<div class="card center" style="width: 18rem;">
 		<div class="card-body">
@@ -79,6 +80,7 @@ function pubComm() {
 		</div>
 		</div>`;
 	
+	//lo agrega a las "diaspositivas"
 	document.getElementById("com_div").innerHTML += `
 		<div id="trew" class="mySlides card center" style="width: 18rem;">
 		<div class="card-body">
