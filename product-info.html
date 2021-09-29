@@ -75,8 +75,17 @@
 		  <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
 		  <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
 		  <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
-		  <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
-		  <b id="user_show" class="py-2 d-none d-md-inline-block bg-warning"></b>
+		  <div class="dropdown">
+			<a class="btn btn-warning dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+			<b id="user_show"></b>
+			</a>
+
+			<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+			<a class="dropdown-item" href="cart.html">Ver mi carrito</a>
+			<a class="dropdown-item" href="my-profile.html">Mi perfil</a>
+			<a class="dropdown-item" href="#" onclick="signOut();">Cerrar sesión</a>
+			</div>
+		</div>
 		</div>
 	  </nav>
 	  
