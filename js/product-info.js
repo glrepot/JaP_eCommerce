@@ -1,5 +1,6 @@
 var comments_array = []; //array que contendrá los comentarios
 var products_array = []; //array que contendrá los productos
+var related_array = []; //contiene los productos relacionados
 
 
 //función encargada de procesar los datos del producto y mostrarlos en html
@@ -95,6 +96,57 @@ function pubComm() {
 	sessionStorage.setItem("trew_reciente", document.getElementById("trew").innerHTML)
 };
 
+
+//función encargada de mostrar los productos relacionados
+function showRelated(array_to){
+	var relToAppend = "";
+    for(let i = 0; i < 1; i++){
+		let pro = array_to[1];
+		let roma = array_to[3];
+		
+		relToAppend += `
+		<a href="product-info.html" class="list-group-item list-group-item-action">
+                <div class="row">
+                    <div class="col-3">
+                        <img src="` + pro.imgSrc + `" alt="` + pro.description + `" class="img-thumbnail">
+                    </div>
+                    <div class="col">
+                        <div class="d-flex w-100 justify-content-between">
+                            <h4 class="mb-1">`+ pro.name +`</h4>
+                            <small class="text-muted">` + pro.soldCount + ` artículos</small>
+                        </div>
+                        <p class="mb-1">` + pro.description + `</p>
+						<p class="mb-1">` + pro.cost + `</p>
+						<p class="mb-1">` + pro.currency + `</p>
+                    </div>
+                </div>
+            </a>
+            `
+		
+		
+		relToAppend += `
+		<a href="product-info.html" class="list-group-item list-group-item-action">
+                <div class="row">
+                    <div class="col-3">
+                        <img src="` + roma.imgSrc + `" alt="` + roma.description + `" class="img-thumbnail">
+                    </div>
+                    <div class="col">
+                        <div class="d-flex w-100 justify-content-between">
+                            <h4 class="mb-1">`+ roma.name +`</h4>
+                            <small class="text-muted">` + roma.soldCount + ` artículos</small>
+                        </div>
+                        <p class="mb-1">` + roma.description + `</p>
+						<p class="mb-1">` + roma.cost + `</p>
+						<p class="mb-1">` + roma.currency + `</p>
+                    </div>
+                </div>
+            </a>
+            `
+
+        document.getElementById("related_container").innerHTML = relToAppend;
+    };
+};
+
 //función encargada de mostrar los comentarios como diaspositivas
 var slideIndex = 1;
 
@@ -136,6 +188,17 @@ document.addEventListener("DOMContentLoaded", function(e){
             comments_array = check.data;
             showComms(comments_array); //se procesan los comentarios
 			showSlides(slideIndex); //se inician las "diaspositivas"
+        };
+    });
+	
+	
+	//sección productos relacionados
+	//sección de los comentarios
+	getJSONData(PRODUCTS_URL).then(function(check){
+        console.log("Check status: " + check.status);
+        if (check.status === 'ok'){
+            related_array = check.data;
+			showRelated(related_array);
         };
     });
 	
