@@ -2,8 +2,6 @@ var comments_array = []; //array que contendrá los comentarios
 var products_array = []; //array que contendrá los productos
 var related_array = []; //contiene los productos relacionados
 
-//ARREGLAR EL 1 Y 3
-
 
 //función encargada de procesar los datos del producto y mostrarlos en html
 function showProduct(array_to){
@@ -25,7 +23,7 @@ function showImgs(array_to){
 		let img = array_to[i];
 		
 		imgsToAppend += `
-        <div class="col-lg-3 col-md-4 col-6 myImgSlides center">
+        <div class="myImgSlides center">
             <div class="d-block mb-4 h-100">
                 <img class="img-fluid img-thumbnail" src="` + img + `" alt="">
             </div>
@@ -154,11 +152,15 @@ var slideIndex = 1;
 
 function showSlides(n) {
   let  slides = document.getElementsByClassName("mySlides"); 
+  
   if (n > slides.length) {slideIndex = 1};   
+  
   if (n < 1) {slideIndex = slides.length};
+  
   for (let i = 0; i < slides.length; i++) {
       slides[i].style.display = "none";  
   };
+  
   slides[slideIndex - 1].style.display = "block";
 };
 
@@ -172,13 +174,17 @@ function plusSlides(n) {
 var imgIndex = 1;
 
 function showImgCaru(n) {
-  let  slides = document.getElementsByClassName("myImgSlides"); 
-  if (n > slides.length) {slideIndex = 1};   
-  if (n < 1) {slideIndex = slides.length};
-  for (let i = 0; i < slides.length; i++) {
-      slides[i].style.display = "none";  
+  let  imgSlides = document.getElementsByClassName("myImgSlides"); 
+  
+  if (n > imgSlides.length) {imgIndex = 1};   
+  
+  if (n < 1) {imgIndex = imgSlides.length};
+  
+  for (let i = 0; i < imgSlides.length; i++) {
+      imgSlides[i].style.display = "none";  
   };
-  slides[slideIndex - 1].style.display = "block";
+  
+  imgSlides[imgIndex - 1].style.display = "block";
 };
 
 
@@ -197,6 +203,7 @@ document.addEventListener("DOMContentLoaded", function(e){
             products_array = check.data;
             showProduct(products_array); //se procesan los datos del producto
 			showImgs(products_array.images); //se procesan las imagenes del prodcuto
+			plusImgSlides(1)
         };
     });
 	
