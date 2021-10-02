@@ -2,6 +2,8 @@ var comments_array = []; //array que contendrá los comentarios
 var products_array = []; //array que contendrá los productos
 var related_array = []; //contiene los productos relacionados
 
+//ARREGLAR EL 1 Y 3
+
 
 //función encargada de procesar los datos del producto y mostrarlos en html
 function showProduct(array_to){
@@ -101,8 +103,8 @@ function pubComm() {
 function showRelated(array_to){
 	var relToAppend = "";
     for(let i = 0; i < 1; i++){
-		let pro = array_to[1];
-		let roma = array_to[3];
+		let pro = array_to[products_array.relatedProducts[0]];
+		let roma = array_to[products_array.relatedProducts[1]];
 		
 		relToAppend += `
 		<a href="product-info.html" class="list-group-item list-group-item-action">
@@ -164,6 +166,9 @@ function showSlides(n) {
 function plusSlides(n) {
   showSlides(slideIndex += n);
 }
+
+
+//función encargada de mostrar la imagenes como diaspositivas
 
 
 //Función que se ejecuta una vez que se haya lanzado el evento de
