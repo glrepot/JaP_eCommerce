@@ -25,7 +25,7 @@ function showImgs(array_to){
 		let img = array_to[i];
 		
 		imgsToAppend += `
-        <div class="col-lg-3 col-md-4 col-6">
+        <div class="col-lg-3 col-md-4 col-6 myImgSlides center">
             <div class="d-block mb-4 h-100">
                 <img class="img-fluid img-thumbnail" src="` + img + `" alt="">
             </div>
@@ -169,7 +169,22 @@ function plusSlides(n) {
 
 
 //función encargada de mostrar la imagenes como diaspositivas
+var imgIndex = 1;
 
+function showImgCaru(n) {
+  let  slides = document.getElementsByClassName("myImgSlides"); 
+  if (n > slides.length) {slideIndex = 1};   
+  if (n < 1) {slideIndex = slides.length};
+  for (let i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";  
+  };
+  slides[slideIndex - 1].style.display = "block";
+};
+
+
+function plusImgSlides(n) {
+  showImgCaru(imgIndex += n);
+}
 
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los

@@ -41,6 +41,10 @@ select {
   display: none;
 }
 
+.myImgSlides {
+  display: none;
+}
+
 /* Next & previous buttons */
 .prev, .next {
   cursor: pointer;
