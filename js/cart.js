@@ -16,7 +16,7 @@ function showArt(array_to){
 	};
 	
 	console.log(agre);
-	document.getElementById("cool").innerHTML = agre;
+	document.getElementById("cool").innerHTML += agre;
 };
 
 //Función que se ejecuta una vez que se haya lanzado el evento de
