@@ -125,9 +125,9 @@
 			
 			
 			<p id="direccion_aod">Dirección de la agencia:</p>
-			<input type="text" id="departamento" placeholder="Departamento..."><br><br>
-			<input type="text" id="ciudad" placeholder="Ciudad..."><br><br>
-			<input type="text" id="calle" placeholder="Calle, esquina..."><br><br>
+			<input type="text" id="departamento" placeholder="Departamento..." onblur="rojo('departamento')"><br><br>
+			<input type="text" id="ciudad" placeholder="Ciudad..." onblur="rojo('ciudad')"><br><br>
+			<input type="text" id="calle" placeholder="Calle, esquina..." onblur="rojo('calle')"><br>
 			
 			<p id="envio_total"></p>
 		</div>
@@ -144,13 +144,15 @@
 			</select>
 			<br><br>
 			
-			<input type="text" id="b_tarjeta" placeholder="Banco asociado"><br><br>
-			<input type="text" id="n_tarjeta" placeholder="Número tarjeta"><br><br>
+			<input type="text" id="b_tarjeta" placeholder="Banco asociado" onblur="rojo('b_tarjeta')"><br><br>
+			<input type="text" id="n_tarjeta" placeholder="Número tarjeta" onblur="rojo('n_tarjeta')"><br><br>
+			<input type="text" id="c_tarjeta" placeholder="Código de seguridad" onblur="rojo('c_tarjeta')"><br><br>
+			<input type="text" id="v_tarjeta" placeholder="Vencimiento" onblur="rojo('v_tarjeta')"><br>
 		</div>
 		
 		<hr>
 		
-		<p id="total"></p>
+		<p id="total" class="center"></p>
 		
 		<button>Confirmar compra</button>
 	</div>

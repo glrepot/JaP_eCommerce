@@ -71,6 +71,16 @@ function check(){
 };
 
 
+function rojo(input_id, input_error){
+    var id_ingresada = document.getElementById(input_id);
+    if(id_ingresada.value.length < 1) {
+        id_ingresada.classList.add("error");
+    } else {
+        id_ingresada.classList.remove("error");
+    };
+};
+
+
 function finalCheck(){
 	//var 
 };
