@@ -4,6 +4,12 @@
 }
 
 
+input {
+	width: 250px;
+	padding: 5px;
+}
+
+
 table {
 	border-collapse: collapse;
 	width: 100%;

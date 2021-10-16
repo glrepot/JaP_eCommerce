@@ -43,12 +43,14 @@ function calculoSub(array_to){
 
 
 function calculoTotal(cur_to, extra, more_money){
+	var iues = 0
 	if(extra == true){
 		cur_price -= 200;
 	};
 	
 	cur_price += more_money;
-	document.getElementById("total").innerHTML = "Total: " + cur_price;
+	iues = cur_price / 40;
+	document.getElementById("total").innerHTML = "Total: " + cur_price + " UYU" + " (" + iues + " USD" + ")";
 };
 
 
@@ -66,6 +68,11 @@ function check(){
 		extra_s = true;
 		calculoTotal(cur_price, false, 200);
 	};
+};
+
+
+function finalCheck(){
+	//var 
 };
 
 
