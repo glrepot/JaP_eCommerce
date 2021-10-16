@@ -114,17 +114,20 @@
 	
 	<div>
 		<div id="envio" class="center">
-			<h5>Envío</h5>
-			<input type="text" id="departamento" placeholder="Departamento..."><br>
-			<input type="text" id="ciudad" placeholder="Ciudad..."><br>
-			<input type="text" id="calle" placeholder="Calle, n° casa..."><br><br>
+			<h5><b>Envío</b></h5>
 			
 			<label for="tipo"><b>Retira en agencia o domicilio propio?</b></label><br>
-			<select name="tipo">
-				<option>Seleccione una opción</option>
-				<option>Domicilio propio</option>
-				<option>Agencia</option>
+			<select id="derect" name="tipo" onblur="check()">
+				<option value="agencia">Agencia (Gratis)</option>
+				<option value="domicilio">Domicilio (200 UYU)</option>
 			</select>
+			<br><br>
+			
+			
+			<p id="direccion_aod">Dirección de la agencia:</p>
+			<input type="text" id="departamento" placeholder="Departamento..."><br>
+			<input type="text" id="ciudad" placeholder="Ciudad..."><br>
+			<input type="text" id="calle" placeholder="Calle, esquina..."><br>
 			
 			<p id="envio_total"></p>
 		</div>
@@ -135,12 +138,15 @@
 			<b>Seleccione método de pago</b>
 			<br>
 			
-			<select name="pago">
-				<option>Débito</option>
-				<option>Crédito</option>
-				<option>Redpagos</option>
-				<option>Abitab</option>
+			<select id="metode" name="pago" onblur="checkPago()">
+				<option>Seleccione una opción</option>
+				<option value="debito">Débito</option>
+				<option value="credito">Crédito</option>
 			</select>
+			<br><br>
+			
+			<input type="text" id="b_tarjeta" placeholder="Banco asociado"><br>
+			<input type="text" id="n_tarjeta" placeholder="Número tarjeta"><br>
 		</div>
 		
 		<hr>
