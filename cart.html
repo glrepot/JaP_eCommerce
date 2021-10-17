@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!-- saved from url=(0049)https://getbootstrap.com/docs/4.3/examples/album/ -->
 <html lang="en">
 
 <head>
@@ -116,20 +115,25 @@
 		<div id="envio" class="center">
 			<h5><b>Envío</b></h5>
 			
+			<label for="tipo_envio"><b>Envío rápido o normal?</b></label><br>
+			<select id="rerect" name="tipo_envio" onblur="check_2()">
+				<option value="normal">Normal (2 a 5 días - Gratis)</option>
+				<option value="rapido">Rápida (1 día - 200 UYU)</option>
+			</select>
+			<br><br>
+			
 			<label for="tipo"><b>Retira en agencia o domicilio propio?</b></label><br>
 			<select id="derect" name="tipo" onblur="check()">
 				<option value="agencia">Agencia (Gratis)</option>
 				<option value="domicilio">Domicilio (200 UYU)</option>
 			</select>
 			<br><br>
-			
-			
+		
 			<p id="direccion_aod">Dirección de la agencia:</p>
 			<input type="text" id="departamento" placeholder="Departamento..." onblur="rojo('departamento')"><br><br>
 			<input type="text" id="ciudad" placeholder="Ciudad..." onblur="rojo('ciudad')"><br><br>
 			<input type="text" id="calle" placeholder="Calle, esquina..." onblur="rojo('calle')"><br>
 			
-			<p id="envio_total"></p>
 		</div>
 		
 		<hr>
@@ -154,8 +158,11 @@
 		
 		<p id="total" class="center"></p>
 		
-		<button>Confirmar compra</button>
+		<p id="err_msg" style="color: red" class="center">Complete los campos faltantes</p><br>
+		<button onclick="finalCheck()" style="margin-left: 42.5%;">Confirmar compra</button>
+		<p id="p_vacio" class="center"></p>
 	</div>
+		
 	
   </div>
   <div id="spinner-wrapper">

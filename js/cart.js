@@ -1,88 +1,176 @@
 var articulos = [];
-var cur_price = 0;
+var sub_price = 0;
+var tot_price = 0;
 var extra_s = false;
+var extra_m = false;
+var ok_to_pass = 0;
+var texto = null;
+
+var pine_count = 0;
+var car_count = 0;
 
 
-//HACER OBLIGATORIO LOS CAMPOS Y MEJORAR LA VISUAL ADEMAS DE PODER MANEJAR LA CANTIDAD DE PRODUCTOS
-
+//agrega los datos del carrito al html
 function showArt(array_to){
 	var agre = ""
 	for(let i = 0; i <  array_to.length; i++){
 		let gar = array_to[i];
 		
 		agre +=
-		`<tr>
-			<img src=` + gar.src + `alt=`+ gar.src + `>
+		`<tr id="`+ gar.name +`">
 			<td>` + gar.name + `</td>
-			<td>` + gar.count + `</td>
-			<td>` + gar.unitCost +  ` ` + gar.currency + `</td>
+			<td><input type="number" id="`+gar.currency+`" name="`+gar.currency+`" min="1" max="100" value="`+ gar.count +`" onclick="suma_cant('`+ gar.currency +`','`+ gar.name +`')"></td>
+			<td>` + gar.unitCost +  ` ` + gar.currency + ` ` + `<button onclick="removeItem('`+ gar.name +`','`+ gar.currency +`')">X</button></td>
 		</tr>`
-	};
-	
-	document.getElementById("cool").innerHTML += agre;
-};
-
-
-function calculoSub(array_to){
-	var subi = 0;
-	
-	for(let i = 0; i <  array_to.length; i++){
-		let rur = array_to[i];
 		
-		if(rur.currency === "USD"){
-			subi += rur.count * (rur.unitCost * 40);
+		
+		if(gar.name == "Pino de olor para el auto"){
+			pine_count = gar.count;
+			sub_price += gar.unitCost * gar.count;
+			tot_price += gar.unitCost * gar.count;
 		} else {
-			subi += rur.count * rur.unitCost;
+			car_count = gar.count;
+			sub_price += gar.unitCost * gar.count * 40;
+			tot_price += gar.unitCost * gar.count * 40;
 		};
 	};
 	
-	cur_price += subi;
-	calculoTotal(cur_price, false, 0);
-	document.getElementById("sub_total").innerHTML = "Subtotal: " + subi + " (precio total en UYU)";
+	document.getElementById("cool").innerHTML += agre;
+	document.getElementById("sub_total").innerHTML = "Subtotal: " + sub_price + " (precio total en UYU)";
+	var iues = tot_price / 40;
+	document.getElementById("total").innerHTML = "Total: " + tot_price + " UYU" + " (" + iues + " USD" + ")";
 };
 
 
-function calculoTotal(cur_to, extra, more_money){
-	var iues = 0
-	if(extra == true){
-		cur_price -= 200;
+//borra productos del carrito
+function removeItem(id_to, count_to){
+	var rem = document.getElementById(id_to);
+	var rem_cant = document.getElementById(count_to).value;
+	
+	if(id_to == "Pino de olor para el auto"){
+		var price = 100 * rem_cant;
+		sub_price -= price
+		tot_price -= price;
+	} else {
+		var price2 = 500000 * rem_cant;
+		sub_price -= price2
+		tot_price -= price2;
+	}
+	
+	document.getElementById("sub_total").innerHTML = "Subtotal: " + sub_price + " (precio total en UYU)";
+	var iues = tot_price / 40;
+	document.getElementById("total").innerHTML = "Total: " + tot_price + " UYU" + " (" + iues + " USD" + ")";
+	rem.parentNode.removeChild(rem);
+};
+
+
+//hace los calculos de la cantidad
+function suma_cant(id_to, name_to){
+	var canti = document.getElementById(id_to).value;
+	
+	if (name_to == "Pino de olor para el auto"){
+		if(pine_count < canti){
+			pine_count = canti;
+			sub_price += 100;
+			tot_price += 100;
+		} else if(pine_count > canti){
+			pine_count -= 1;
+			sub_price -= 100;
+			tot_price -= 100;
+		};
+	} else {
+		if(car_count < canti){
+			car_count = canti;
+			sub_price += 500000;
+			tot_price += 500000;
+		} else if(car_count > canti){
+			car_count -= 1;
+			sub_price -= 500000;
+			tot_price -= 500000;
+		};
 	};
 	
-	cur_price += more_money;
-	iues = cur_price / 40;
-	document.getElementById("total").innerHTML = "Total: " + cur_price + " UYU" + " (" + iues + " USD" + ")";
+	document.getElementById("sub_total").innerHTML = "Subtotal: " + sub_price + " (precio total en UYU)";
+	var iues = tot_price / 40;
+	document.getElementById("total").innerHTML = "Total: " + tot_price + " UYU" + " (" + iues + " USD" + ")";
 };
 
-
+//cambia el texto de a donde se dirige el producto y calcula si hay cosot extra o no
 function check(){
 	var serect = document.getElementById("derect").value;
 	
 	if(serect == "agencia"){
 		document.getElementById("direccion_aod").innerHTML = "Dirección de la agencia:";
 		if(extra_s == true){
-			calculoTotal(cur_price, true, 0);
+			tot_price -= 200
 			extra_s = false;
 		};
 	} else {
 		document.getElementById("direccion_aod").innerHTML = "Dirección del domicilio:";
 		extra_s = true;
-		calculoTotal(cur_price, false, 200);
+		tot_price += 200
 	};
+	
+	var iues = tot_price / 40;
+	document.getElementById("total").innerHTML = "Total: " + tot_price + " UYU" + " (" + iues + " USD" + ")";
 };
 
 
+//calcula costo extra si se hace envio rapido o no
+function check_2(){
+	var rerect = document.getElementById("rerect").value;
+	
+	if(rerect == "normal"){
+		if(extra_m == true){
+			tot_price -= 200
+			extra_s = false;
+		};
+	} else {
+		extra_m = true;
+		tot_price += 200
+	};
+	
+	var iues = tot_price / 40;
+	document.getElementById("total").innerHTML = "Total: " + tot_price + " UYU" + " (" + iues + " USD" + ")";
+};
+
+
+//agrega bordes rojos si no se completan los campos, ademas de mostrar un texto pidiendo que se completen los campos
 function rojo(input_id, input_error){
     var id_ingresada = document.getElementById(input_id);
+	var err = document.getElementById("err_msg");
     if(id_ingresada.value.length < 1) {
         id_ingresada.classList.add("error");
+		err.style.display = "block";
+		if(ok_to_pass == 0){
+			return;
+		} else {
+			ok_to_pass -= 1;
+		};
     } else {
         id_ingresada.classList.remove("error");
+		err.style.display = "none";
+		ok_to_pass += 1;
     };
 };
 
 
+//si todo esta completo, se meustra el mensaje de compra
 function finalCheck(){
-	//var 
+	var err = document.getElementById("err_msg");
+	
+	if(ok_to_pass >= 7){
+		err.style.display = "none";
+		getJSONData(CART_BUY_URL).then(function(resultObj){
+        if (resultObj.status === "ok")
+        {
+            texto = resultObj.data;
+			document.getElementById("p_vacio").innerHTML = texto.msg;
+		};
+	 });
+	} else {
+		err.style.display = "block";
+	};
 };
 
 
@@ -95,7 +183,8 @@ document.addEventListener("DOMContentLoaded", function(e){
         {
             articulos = resultObj.data;
 			showArt(articulos.articles);
-			calculoSub(articulos.articles);
 		};
 	 });
+	 var err = document.getElementById("err_msg");
+	 err.style.display = "none";
 });
