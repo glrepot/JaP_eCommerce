@@ -95,12 +95,12 @@
     </div>
   </nav>
   <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 6 (Fecha de entrega: 31/10/2021).</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
-    </div>
+    <input type="text" placeholder="Nombre y Apellido" id="campo_nombre"><br><br>
+	<input type="text" placeholder="Edad" id="campo_edad"><br><br>
+	<input type="email" placeholder="Email" id="campo_email"><br><br>
+	<input type="tel" placeholder="Celular/Télefono" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" id="campo_numero"><br><br>
+	<button id="modificar" onclick="modifyData()">Modificar datos</button><br><br>
+	<button id="guardar" onclick="saveData()">Guardar datos</button>
   </div>
   <footer class="text-muted bg-light">
     <div class="container">
