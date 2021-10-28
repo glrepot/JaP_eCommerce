@@ -6,6 +6,12 @@ Recuerda del uso de los métodos JSON.stringify y JSON.parse para poder almacena
 
 
 function modifyData(){
+	var nombre, edad, email, telefono
+	nombre = document.getElementById('campo_nombre')
+	edad = document.getElementById('campo_edad')
+	email = document.getElementById('campo_email')
+	telefono = document.getElementById('campo_telefono')
+	
 	
 };
 

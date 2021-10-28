@@ -7,7 +7,39 @@ function showProducts(array_to){
     for(let i = 0; i < array_to.length; i++){
         let pro = array_to[i];
 
-        htmlContentToAppend += `
+        htmlContentToAppend += ` 
+		<div class="col-md-4">
+		 <a href="product-info.html" class="stretched-link text-secondary" style="position: relative;">
+			<div class="card mb-4 box-shadow">
+				<img src="` + pro.imgSrc + `" alt="` + pro.description + `" class="img-thumbnail">
+					<div class="card-body">
+						<h5>`+ pro.name +`</h5>
+						<p class="card-text">`+ pro.description +`</p>
+						<div class="d-flex justify-content-between align-items-center">
+							<div>
+							<b>`+ pro.cost +`</b>
+							<b>`+ pro.currency +`</b>
+						</div>
+                    <small class="text-muted">Cantidad vendidos:  `+ pro.soldCount +`</small>
+                  </div>
+                </div>
+              </div>
+			  </a>
+            </div>
+			`
+		
+		//`<li>` + pro.name + " | " + pro.description + " | " + pro.cost + " " + pro.currency + `</li>` + `<hr>`;
+        //a htmlContentToAppend le voy "sumando"(agregando) la lista con <li> y las características a través de los nodos
+
+        document.getElementById("yes").innerHTML = htmlContentToAppend; 
+        //agrego al div con id "yes" la lista contenida en htmlContentToAppend
+    };
+};
+
+
+/*
+Codigo anterior:
+`
             <a href="product-info.html" class="list-group-item list-group-item-action">
                 <div class="row">
                     <div class="col-3">
@@ -25,14 +57,7 @@ function showProducts(array_to){
                 </div>
             </a>
             `
-		
-		//`<li>` + pro.name + " | " + pro.description + " | " + pro.cost + " " + pro.currency + `</li>` + `<hr>`;
-        //a htmlContentToAppend le voy "sumando"(agregando) la lista con <li> y las características a través de los nodos
-
-        document.getElementById("yes").innerHTML = htmlContentToAppend; 
-        //agrego al div con id "yes" la lista contenida en htmlContentToAppend
-    };
-};
+*/
 
 
 //función encargada de mostrar los productos dentro de un rango establecido
