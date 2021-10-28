@@ -97,20 +97,21 @@
     </div>
   </nav>
   <div class="container p-5">
-	<h3 id="usuario"></h3>
+	<h3 id="usuario"></h3><hr>
+	
 	<b>Foto de perfil</b><br>
-		<img src="img/profile_cat1.jpg" style="border-radius: 100px;"><br><br>
+		<img src="img/profile_cat1.jpg" style="border-radius: 50%;"><br><br>
 	<b>Nombre y Apellido</b><br>
-		<input type="text" placeholder="Nombre y Apellido" id="campo_nombre" disabled><br><br>
+		<input type="text" placeholder="Nombre y Apellido" id="campo_nombre"><br><br>
 	<b>Edad</b><br>
-		<input type="text" placeholder="Edad" id="campo_edad" disabled><br><br>
+		<input type="text" placeholder="Edad" id="campo_edad"><br><br>
 	<b>Email</b><br>
-		<input type="email" placeholder="Email" id="campo_email" disabled><br><br>
+		<input type="email" placeholder="Email" id="campo_email"><br><br>
 	<b>Número de télefono/celular</b><br>
-		<input type="tel" placeholder="Celular/Télefono" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" id="campo_numero" disabled><br><br>
+		<input type="tel" placeholder="Celular/Télefono" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" id="campo_numero"><br><br>
 		
-	<button id="modificar" onclick="modifyData()">Modificar datos</button><br><br>
-	<button id="guardar" onclick="saveData()">Guardar datos</button>
+	<button id="modificar" onclick="modifyData()" class="btn btn-warning">Modificar datos</button><br><br>
+	<button id="guardar" onclick="saveData()" class="btn btn-success">Guardar datos</button>
   </div>
   <footer class="text-muted bg-light">
     <div class="container">
