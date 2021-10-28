@@ -11,12 +11,19 @@ var nombre, edad, email, telefono
 
 
 function modifyData(){
+	nombre.disabled = false;
+	edad.disabled = false;
+	email.disabled = false;
+	telefono.disabled = false;
 	
 };
 
 
 function saveData(){
-	
+	nombre.disabled = true;
+	edad.disabled = true;
+	email.disabled = true;
+	telefono.disabled = true;
 };
 
 
