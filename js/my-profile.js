@@ -3,27 +3,43 @@ TIENE QUE USAR OBLIGATORIAMENTE UN JSON.STRINGIFY
 COMO DICE EN LA LETRA:
 Recuerda del uso de los métodos JSON.stringify y JSON.parse para poder almacenar y recuperar los datos almacenados respectivamente.
 */
-var nombre, edad, email, telefono
-	nombre = document.getElementById('campo_nombre')
-	edad = document.getElementById('campo_edad')
-	email = document.getElementById('campo_email')
-	telefono = document.getElementById('campo_numero')
+var c_nombre, c_edad, c_email, c_telefono
+	c_nombre = document.getElementById('campo_nombre')
+	c_edad = document.getElementById('campo_edad')
+	c_email = document.getElementById('campo_email')
+	c_telefono = document.getElementById('campo_numero')
+
+
+var datos = new Object();
+	datos.nombre = null;
+	datos.edad = null;
+	datos.email = null;
+	datos.telefono = null;
+	
+
+function campo_status(status){
+	c_nombre.disabled = status;
+	c_edad.disabled = status;
+	c_email.disabled = status;
+	c_telefono.disabled = status;
+};
 
 
 function modifyData(){
-	nombre.disabled = false;
-	edad.disabled = false;
-	email.disabled = false;
-	telefono.disabled = false;
-	
+	campo_status(false);
 };
 
 
 function saveData(){
-	nombre.disabled = true;
-	edad.disabled = true;
-	email.disabled = true;
-	telefono.disabled = true;
+	campo_status(true);
+	
+	datos.nombre = c_nombre.value;
+	datos.edad = c_edad.value;
+	datos.email = c_email.value;
+	datos.telefono = c_telefono.value;
+	
+	localStorage.setItem("datos_user", JSON.stringify(datos));
+	console.log(localStorage.getItem("datos_user"));
 };
 
 
@@ -32,8 +48,12 @@ function saveData(){
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function (e) {
 	//deshabilitar edicion campos
-	nombre.disabled = true;
-	edad.disabled = true;
-	email.disabled = true;
-	telefono.disabled = true;
+	campo_status(true);
+	
+	//chequear si hay datos o no
+	var check_data = sessionStorage.getItem("datos_user")
+	if(check_data != null){
+		console.log(check_data);
+		JSON.parse(check_data);
+	};
 });
