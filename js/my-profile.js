@@ -51,9 +51,13 @@ document.addEventListener("DOMContentLoaded", function (e) {
 	campo_status(true);
 	
 	//chequear si hay datos o no
-	var check_data = sessionStorage.getItem("datos_user")
+	var check_data = localStorage.getItem("datos_user")
 	if(check_data != null){
-		console.log(check_data);
-		JSON.parse(check_data);
+		var datos_json = JSON.parse(check_data);
+			c_nombre.value = datos_json.nombre; 
+			c_edad.value = datos_json.edad; 
+			c_email.value = datos_json.email; 
+			c_telefono.value = datos_json.telefono;
+			console.log(datos_json)
 	};
 });
