@@ -70,7 +70,9 @@
 	document.addEventListener("DOMContentLoaded", function(e){
 	var user = sessionStorage.getItem("usuario");
 	var campo_user = document.getElementById("user_show");
+	var user_name = document.getElementById("usuario");
 	campo_user.innerHTML = "Bienvenido, " + user;
+	user_name = user;
 	});
 	</script>
 	
@@ -95,6 +97,7 @@
     </div>
   </nav>
   <div class="container p-5">
+	<h3 id="usuario"></h3>
 	<b>Foto de perfil</b><br>
 		<img src="img/profile_cat1.jpg" style="border-radius: 100px;"><br><br>
 	<b>Nombre y Apellido</b><br>
