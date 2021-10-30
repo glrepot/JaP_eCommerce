@@ -37,9 +37,15 @@ function saveData(){
 	datos.edad = c_edad.value;
 	datos.email = c_email.value;
 	datos.telefono = c_telefono.value;
+	vacio();
 	
 	localStorage.setItem("datos_user", JSON.stringify(datos));
 	console.log(localStorage.getItem("datos_user"));
+};
+
+
+function vacio(){
+	
 };
 
 
