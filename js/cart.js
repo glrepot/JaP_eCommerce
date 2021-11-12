@@ -98,7 +98,7 @@ function suma_cant(id_to, name_to){
 	document.getElementById("total").innerHTML = "Total: " + tot_price + " UYU" + " (" + iues + " USD" + ")";
 };
 
-//cambia el texto de a donde se dirige el producto y calcula si hay cosot extra o no
+//cambia el texto de a donde se dirige el producto y calcula si hay costo extra o no
 function check(){
 	var serect = document.getElementById("derect").value;
 	
@@ -166,7 +166,6 @@ function rojo(input_id, input_error){
 //si todo esta completo, se meustra el mensaje de compra
 function finalCheck(){
 	var err = document.getElementById("err_msg");
-	var rojto = document.querySelectorAll('input[type=text]')
 	
 	if(ok_to_pass >= 7){
 		err.style.display = "none";
