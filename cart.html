@@ -100,9 +100,9 @@
 	<div>
 		<table id="cool">
 			<tr>
-				<td style="text-align: center;"><b>Producto</b></td>
-				<td style="text-align: center;"><b>Cantidad</b></td>
-				<td style="text-align: center;"><b>Precio</b></td>
+				<th style="text-align: center;" class="arriba"><b>Producto</b></td>
+				<th style="text-align: center;"><b>Cantidad</b></td>
+				<th style="text-align: center;"><b>Precio</b></td>
 			</tr>
 		</table>
 		
@@ -115,25 +115,43 @@
 		<div id="envio" class="center">
 			<h5><b>Envío</b></h5>
 			
-			<label for="tipo_envio"><b>Envío rápido o normal?</b></label><br>
-			<select id="rerect" name="tipo_envio" onblur="check_2()">
-				<option value="normal">Normal (2 a 5 días - Gratis)</option>
-				<option value="rapido">Rápida (1 día - 200 UYU)</option>
-			</select>
-			<br><br>
-			
-			<label for="tipo"><b>Retira en agencia o domicilio propio?</b></label><br>
-			<select id="derect" name="tipo" onblur="check()">
-				<option value="agencia">Agencia (Gratis)</option>
-				<option value="domicilio">Domicilio (200 UYU)</option>
-			</select>
-			<br><br>
+			<button type="button" class="btn btn-success" data-toggle="modal" data-target="#envioModal">
+				Elegir método de envío...
+			</button>
 		
-			<p id="direccion_aod">Dirección de la agencia:</p>
-			<input type="text" id="departamento" placeholder="Departamento..." onblur="rojo('departamento')"><br><br>
-			<input type="text" id="ciudad" placeholder="Ciudad..." onblur="rojo('ciudad')"><br><br>
-			<input type="text" id="calle" placeholder="Calle, esquina..." onblur="rojo('calle')"><br>
+			<div class="modal fade" id="envioModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			  <div class="modal-dialog">
+				<div class="modal-content">
+				  <div class="modal-header">
+					<h5 class="modal-title">Seleccione método de envío</h5>
+				  </div>
+				  <div class="modal-body">
+					<label for="tipo_envio"><b>Envío rápido o normal?</b></label><br>
+						<select id="rerect" name="tipo_envio" onblur="check_2()">
+							<option value="normal">Standard (12 a 15 días - 5% sobre el subtotal)</option>
+							<option value="rapido">Express (5 a 8 días - 7% sobre el subtotal)</option>
+							<option value="premium">Premium (2 a 5 días - 15% sobre el subtotal)</option>
+						</select>
+						<br><br>
 			
+					<label for="tipo"><b>Retira en agencia o domicilio propio?</b></label><br>
+						<select id="derect" name="tipo" onblur="check()">
+							<option value="agencia">Agencia (Gratis)</option>
+							<option value="domicilio">Domicilio (200 UYU)</option>
+						</select>
+						<br><br>
+		
+					<p id="direccion_aod">Dirección de la agencia:</p>
+						<input type="text" id="departamento" placeholder="Departamento..." onblur="rojo('departamento')"><br><br>
+						<input type="text" id="ciudad" placeholder="Ciudad..." onblur="rojo('ciudad')"><br><br>
+						<input type="text" id="calle" placeholder="Calle, esquina..." onblur="rojo('calle')"><br>
+				  </div>
+				  <div class="modal-footer">
+					<button type="button" class="btn btn-success" data-dismiss="modal">Listo</button>
+				  </div>
+				</div>
+			  </div>
+			</div>
 		</div>
 		
 		<hr>
@@ -142,16 +160,33 @@
 			<b>Seleccione método de pago</b>
 			<br>
 			
-			<select id="metode" name="pago" onblur="checkPago()">
-				<option value="debito">Débito</option>
-				<option value="credito">Crédito</option>
-			</select>
-			<br><br>
+			<button type="button" class="btn btn-success" data-toggle="modal" data-target="#tarjetaModal">
+				Elegir método de pago...
+			</button>
 			
-			<input type="text" id="b_tarjeta" placeholder="Banco asociado" onblur="rojo('b_tarjeta')"><br><br>
-			<input type="text" id="n_tarjeta" placeholder="Número tarjeta" onblur="rojo('n_tarjeta')"><br><br>
-			<input type="text" id="c_tarjeta" placeholder="Código de seguridad" onblur="rojo('c_tarjeta')"><br><br>
-			<input type="text" id="v_tarjeta" placeholder="Vencimiento" onblur="rojo('v_tarjeta')"><br>
+			<div class="modal fade" id="tarjetaModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			  <div class="modal-dialog">
+				<div class="modal-content">
+				  <div class="modal-header">
+					<h5 class="modal-title">Seleccione método de pago</h5>
+				  </div>
+				  <div class="modal-body">
+					<select id="metode" name="pago" onblur="checkPago()">
+						<option value="debito">Débito</option>
+						<option value="credito">Crédito</option>
+					</select><br><br>
+					
+					<input type="text" id="b_tarjeta" placeholder="Banco asociado" onblur="rojo('b_tarjeta')"><br><br>
+					<input type="text" id="n_tarjeta" placeholder="Número tarjeta" onblur="rojo('n_tarjeta')"><br><br>
+					<input type="text" id="c_tarjeta" placeholder="Código de seguridad" onblur="rojo('c_tarjeta')"><br><br>
+					<input type="text" id="v_tarjeta" placeholder="Vencimiento" onblur="rojo('v_tarjeta')"><br>
+				  </div>
+				  <div class="modal-footer">
+					<button type="button" class="btn btn-success" data-dismiss="modal">Listo</button>
+				  </div>
+				</div>
+			  </div>
+			</div>
 		</div>
 		
 		<hr>
@@ -159,7 +194,9 @@
 		<p id="total" class="center"></p>
 		
 		<p id="err_msg" style="color: red" class="center">Complete los campos faltantes</p><br>
-		<button onclick="finalCheck()" style="margin-left: 42.5%;">Confirmar compra</button>
+		<div class="center">
+			<button onclick="finalCheck()" class="btn btn-warning">Confirmar compra</button>
+		</div>
 		<p id="p_vacio" class="center"></p>
 	</div>
 		

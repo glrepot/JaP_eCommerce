@@ -13,6 +13,8 @@ input {
 table {
 	border-collapse: collapse;
 	width: 100%;
+	border-radius: 10px;
+	
 }
 
 
@@ -26,4 +28,11 @@ td, th {
 .error {
     border: 2px solid red; 
     border-radius: 2px; 
+}
+
+
+.button_style_removal {
+	border-radius: 10px;
+	background-color: #fec5bb;
+	border: 2px solid red; 
 }

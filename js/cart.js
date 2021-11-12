@@ -1,10 +1,12 @@
-var articulos = [];
-var sub_price = 0;
-var tot_price = 0;
-var extra_s = false;
-var extra_m = false;
-var ok_to_pass = 0;
-var texto = null;
+var articulos, sub_price, tot_price, extra_s, extra_m, ok_to_pass, texto, env_porc;
+articulos = [];
+sub_price = 0;
+tot_price = 0;
+extra_s = false;
+extra_m = false;
+env_porc = 0;
+ok_to_pass = 0;
+texto = null;
 
 var pine_count = 0;
 var car_count = 0;
@@ -20,7 +22,7 @@ function showArt(array_to){
 		`<tr id="`+ gar.name +`">
 			<td>` + gar.name + `</td>
 			<td><input type="number" id="`+gar.currency+`" name="`+gar.currency+`" min="1" max="100" value="`+ gar.count +`" onclick="suma_cant('`+ gar.currency +`','`+ gar.name +`')"></td>
-			<td>` + gar.unitCost +  ` ` + gar.currency + ` ` + `<button onclick="removeItem('`+ gar.name +`','`+ gar.currency +`')">X</button></td>
+			<td>` + gar.unitCost +  ` ` + gar.currency + ` ` + `<button class="button_style_removal" onclick="removeItem('`+ gar.name +`','`+ gar.currency +`')">X</button></td>
 		</tr>`
 		
 		
@@ -60,6 +62,7 @@ function removeItem(id_to, count_to){
 	document.getElementById("sub_total").innerHTML = "Subtotal: " + sub_price + " (precio total en UYU)";
 	var iues = tot_price / 40;
 	document.getElementById("total").innerHTML = "Total: " + tot_price + " UYU" + " (" + iues + " USD" + ")";
+	check_2();
 	rem.parentNode.removeChild(rem);
 };
 
@@ -119,17 +122,22 @@ function check(){
 //calcula costo extra si se hace envio rapido o no
 function check_2(){
 	var rerect = document.getElementById("rerect").value;
+	var porc = null;
+	
+	tot_price -= env_porc;
 	
 	if(rerect == "normal"){
-		if(extra_m == true){
-			tot_price -= 200
-			extra_s = false;
-		};
+		porc = (5/100) * sub_price;
+		env_porc = porc;
+	} else if(rerect == "rapido") {
+		porc = (7/100) * sub_price;
+		env_porc = porc;
 	} else {
-		extra_m = true;
-		tot_price += 200
+		porc = (15/100) * sub_price;
+		env_porc = porc;
 	};
 	
+	tot_price += env_porc;
 	var iues = tot_price / 40;
 	document.getElementById("total").innerHTML = "Total: " + tot_price + " UYU" + " (" + iues + " USD" + ")";
 };
@@ -158,6 +166,7 @@ function rojo(input_id, input_error){
 //si todo esta completo, se meustra el mensaje de compra
 function finalCheck(){
 	var err = document.getElementById("err_msg");
+	var rojto = document.querySelectorAll('input[type=text]')
 	
 	if(ok_to_pass >= 7){
 		err.style.display = "none";
@@ -165,7 +174,9 @@ function finalCheck(){
         if (resultObj.status === "ok")
         {
             texto = resultObj.data;
-			document.getElementById("p_vacio").innerHTML = texto.msg;
+			err.style.display = "none";
+			alert(texto.msg);
+			window.location.href= "https://glrepot.github.io/jap_ecommerce/index.html";
 		};
 	 });
 	} else {

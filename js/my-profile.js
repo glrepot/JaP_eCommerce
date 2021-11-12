@@ -1,8 +1,3 @@
-/*
-TIENE QUE USAR OBLIGATORIAMENTE UN JSON.STRINGIFY
-COMO DICE EN LA LETRA:
-Recuerda del uso de los métodos JSON.stringify y JSON.parse para poder almacenar y recuperar los datos almacenados respectivamente.
-*/
 var c_nombre, c_edad, c_email, c_telefono
 	c_nombre = document.getElementById('campo_nombre')
 	c_edad = document.getElementById('campo_edad')
